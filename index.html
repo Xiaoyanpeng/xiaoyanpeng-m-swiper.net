@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>轮播图</title>
+        <meta content="yes" name="apple-mobile-web-app-capable">
+        <meta content="black" name="apple-mobile-web-app-status-bar-style">
+        <meta content="telephone=no" name="format-detection">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta name="apple-mobile-web-app-title" content="标题">
+        <link rel="stylesheet" href="css/sm.min.css">
+        <link rel="stylesheet" href="css/swiper.min.css">
+        <style>
+            img{
+                width:100%;
+            }
+            .swiper-slide{
+                width:100%;
+                height:7.5rem;
+                overflow:hidden;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="page-group">
+        <div class="page page-current">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="images/1.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="images/2.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="images/3.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="images/4.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="images/5.jpg" alt=""></div>
+            </div>
+            <!-- 如果需要分页器 -->
+            <div class="swiper-pagination"></div>
+            
+            <!-- 如果需要导航按钮 -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+        </div>
+        </div>
+        <script>
+            (function (doc, win) {
+                var docEl = doc.documentElement,
+                        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                        recalc = function () {
+                            var clientWidth = docEl.clientWidth;
+                            clientWidth> 720 && (clientWidth = 720),
+                            clientWidth < 320 && (clientWidth = 320),
+        //                    if (!clientWidth) return;
+                            docEl.style.fontSize = 35 * (clientWidth / 640) + 'px';
+                        };
+
+                if (!doc.addEventListener) return;
+                win.addEventListener(resizeEvt, recalc, false);
+                doc.addEventListener('DOMContentLoaded', recalc, false);
+            })(document, window);
+        </script>
+        <script src="js/zepto.min.js"></script>
+        <script src="js/sm.min.js"></script>
+        <script src="js/swiper.min.js"></script>
+        <script>$.init()</script>
+        <script>
+            var mySwiper = new Swiper ('.swiper-container', {
+                loop: true,
+                pagination: '.swiper-pagination',
+                nextButton: '.swiper-button-next',
+                prevButton: '.swiper-button-prev',
+                autoplay:1000,
+                speed: 500,
+                spaceBetween: 0,
+                autoplayDisableOnInteraction : false,
+            })        
+        </script>
+    </body>
+</html>
